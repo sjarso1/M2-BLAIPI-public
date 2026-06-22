@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Methods | M2-BLAIPI</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>M2-BLAIPI</h1>
+      <p class="subtitle">
+        Metabolic Pathway Modeling to Support Risk Stratification
+        in Burkitt Lymphoma
+      </p>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="methods.html">Methods</a>
+        <a href="team.html">Team</a>
+        <a href="updates.html">Updates</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Methods</h2>
+      <p>
+        This page gives a high-level, public summary of the analytical approach.
+        It is intentionally non-sensitive and omits internal implementation
+        detail, data-access instructions, and unreleased code.
+      </p>
+    </section>
+
+    <section>
+      <h2>Data and Analysis Overview</h2>
+      <p>
+        The project works with publicly accessible Burkitt lymphoma genomic,
+        transcriptomic, and clinical datasets. Analyses are carried out in R and
+        Python using version-controlled, containerized workflows so that results
+        can be reproduced from documented code.
+      </p>
+    </section>
+
+    <section>
+      <h2>Pathway Activity Analysis</h2>
+      <p>
+        Sample-level metabolic pathway activity is inferred from gene-expression
+        data using Gene Set Variation Analysis (GSVA) against curated pathway
+        gene sets, including KEGG, Reactome, and custom Burkitt-lymphoma-relevant
+        collections. Differences in pathway activity across genetic subgroups are
+        assessed using linear models with multiple-testing correction, and
+        analyses are stratified by EBV status to separate subgroup-associated
+        signals from EBV-associated signals.
+      </p>
+    </section>
+
+    <section>
+      <h2>Feature Engineering</h2>
+      <p>
+        Literature-derived composite metabolic indices summarize biology linked
+        to the disease's principal oncogenic drivers, including MYC activity,
+        EBV-associated metabolic reprogramming, B-cell-receptor and downstream
+        signaling, and tumor-suppressor-related metabolic disruption. Endemic
+        context indicators are designed to represent malaria-related and
+        geographic factors where appropriate metadata are available, with
+        explicit handling of missing values.
+      </p>
+    </section>
+
+    <section>
+      <h2>Modeling and Validation Plan</h2>
+      <p>
+        Risk modeling is planned using multivariate survival methods, including
+        regularized Cox regression with survival-forest and gradient-boosting
+        comparators. Model performance is evaluated with nested cross-validation
+        and assessed for discrimination and calibration, benchmarked against a
+        clinical-variable-only baseline. Results described elsewhere on this site
+        as planned analyses should be read as the intended approach rather than
+        completed findings.
+      </p>
+    </section>
+
+    <section>
+      <h2>Reproducibility Principles</h2>
+      <ul>
+        <li>Version-controlled code and analysis notebooks.</li>
+        <li>Containerized environments for portable, repeatable analysis.</li>
+        <li>Documented, curated gene sets with literature citations.</li>
+        <li>Open-source release of approved, public-facing materials.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Jarso Lab | Johns Hopkins University</p>
+    </div>
+  </footer>
+</body>
+</html>
