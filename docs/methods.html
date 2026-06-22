@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Methods | M2-BLAIPI</title>
+<meta name="description" content="A high-level, non-sensitive summary of the M2-BLAIPI analytical approach: pathway scoring, feature engineering, modeling, and reproducibility." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="M2-BLAIPI home">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.2" y="2.2" width="19.6" height="19.6" stroke="#2F4858" stroke-width="1.4"/><path d="M3 21 C8 21 9 7 13 7 S18 5 21 4" stroke="#5A7689" stroke-width="1.3" fill="none"/><path d="M3 21 C8 21 11 13 16 13 S20 12 21 11.5" stroke="#2F4858" stroke-width="1.3" fill="none"/><path d="M3 21 C9 21 12 17 21 16.5" stroke="#DD5B1E" stroke-width="1.7" fill="none"/></svg>
+      M2&#8209;BLAIPI
+    </a>
+    <nav class="navlinks">
+      <a href="research.html">Research</a>
+      <a href="methods.html" class="active">Methods</a>
+      <a href="team.html">Team</a>
+      <a href="updates.html">Updates</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="gh" href="https://github.com/sjarso1/m2-blaipi-public">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.73-.5.05-.49.05-.49.81.06 1.23.83 1.23.83.72 1.23 1.88.87 2.34.67.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      GitHub
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Jump to sections">Sections &#8595;</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero compact" style="border-top:0;">
+    <div class="wrap hero-solo">
+      <span class="eyebrow">Methods</span>
+      <h1>A public, high-level view of the approach</h1>
+      <p class="lede">This page summarizes the analytical approach at a non-sensitive level. It omits internal implementation detail, data-access instructions, and unreleased code.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Data and analysis overview</span>
+        <h2>Four stages, one reproducible workflow</h2>
+        <p>The project works with publicly accessible Burkitt lymphoma datasets, analyzed in R and Python using version-controlled, containerized workflows so results can be reproduced from documented code.</p>
+      </div>
+      <div class="concept reveal">
+        <div class="cc"><div class="lab">Stage 1</div><h3>Data</h3><p>Publicly accessible genomic, transcriptomic, and clinical datasets, harmonized to a common schema.</p></div>
+        <div class="cc"><div class="lab">Stage 2</div><h3>Pathway scoring</h3><p>Sample-level metabolic pathway activity inferred from gene expression with GSVA.</p></div>
+        <div class="cc"><div class="lab">Stage 3</div><h3>Feature engineering</h3><p>Composite metabolic indices and endemic-context indicators built from the literature.</p></div>
+        <div class="cc"><div class="lab">Stage 4</div><h3>Modeling</h3><p>Multivariate survival modeling, validated and benchmarked against the clinical baseline.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap body-col reveal">
+      <span class="eyebrow">Pathway activity analysis</span>
+      <h2>Turning expression into interpretable pathway scores</h2>
+      <p>Metabolic pathway activity is inferred from gene-expression data using Gene Set Variation Analysis (GSVA) against curated pathway gene sets, including KEGG, Reactome, and custom Burkitt-lymphoma-relevant collections.</p>
+      <p>Differences across genetic subgroups are assessed with linear models and multiple-testing correction, and analyses are stratified by EBV status to separate subgroup-associated signals from EBV-associated ones.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap body-col reveal">
+      <span class="eyebrow">Feature engineering</span>
+      <h2>Composite indices grounded in oncogenic biology</h2>
+      <p>Literature-derived composite metabolic indices summarize biology linked to the disease's principal oncogenic drivers &mdash; MYC activity, EBV-associated reprogramming, B-cell-receptor and downstream signaling, and tumor-suppressor-related disruption.</p>
+      <p>Endemic-context indicators represent malaria-related and geographic factors where appropriate metadata are available, with explicit handling of missing values.</p>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap body-col reveal">
+      <span class="eyebrow">Modeling and validation plan</span>
+      <h2>Survival modeling, benchmarked honestly</h2>
+      <p>Risk modeling is planned using multivariate survival methods, including regularized Cox regression with survival-forest and gradient-boosting comparators. Performance is evaluated with nested cross-validation, assessed for discrimination and calibration, and benchmarked against a clinical-variable-only baseline.</p>
+      <p class="note">Methods described here as planned should be read as the intended approach, not completed findings.</p>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Reproducibility principles</span>
+        <h2>Built to be checked and reused</h2>
+      </div>
+      <div class="pgrid reveal">
+        <div class="pcard"><div class="pp">Principle</div><h3>Version control</h3><p>Code and analysis notebooks tracked so every result traces back to its source.</p></div>
+        <div class="pcard"><div class="pp">Principle</div><h3>Containerization</h3><p>Portable environments so analyses run the same way across machines.</p></div>
+        <div class="pcard"><div class="pp">Principle</div><h3>Curated gene sets</h3><p>Documented pathway gene sets with literature citations.</p></div>
+        <div class="pcard"><div class="pp">Principle</div><h3>Open source</h3><p>Approved, public-facing materials released openly for review.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand" style="color:#fff;margin-bottom:12px;">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" style="width:22px;height:22px;">
+            <rect x="2.2" y="2.2" width="19.6" height="19.6" stroke="#5A7689" stroke-width="1.4"/>
+            <path d="M3 21 C8 21 9 7 13 7 S18 5 21 4" stroke="#5A7689" stroke-width="1.3" fill="none"/>
+            <path d="M3 21 C9 21 12 17 21 16.5" stroke="#DD5B1E" stroke-width="1.7" fill="none"/>
+          </svg>
+          M2&#8209;BLAIPI
+        </div>
+        <p class="lead">Metabolic pathway modeling to support risk stratification in Burkitt lymphoma. A biomedical-engineering research project in the Applied Biomedical Engineering program at Johns Hopkins University.</p>
+        <div class="meta-line">
+          <b>Student</b> Kenzie Chen<br>
+          <b>Research advisor</b> Dr. Samson Jarso<br>
+          <b>Institution</b> Johns Hopkins University &middot; Engineering for Professionals
+        </div>
+      </div>
+      <div>
+        <h3>PROJECT</h3>
+        <a href="research.html">Research</a>
+        <a href="methods.html">Methods</a>
+        <a href="team.html">Team</a>
+        <a href="updates.html">Updates</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h3>COURSE</h3>
+        <a href="research.html">Applied Biomedical Engineering</a>
+        <a href="methods.html">Independent Study</a>
+        <a href="updates.html">Project milestones</a>
+      </div>
+      <div>
+        <h3>RESOURCES</h3>
+        <a class="ext" href="https://ep.jhu.edu/">Johns Hopkins EP</a>
+        <a href="contact.html">Collaboration inquiries</a>
+      </div>
+    </div>
+    <div class="fine">
+      <span>M2&#8209;BLAIPI &middot; Public site &mdash; reviewed content only. No restricted data, credentials, or unreviewed findings.</span>
+      <span>Built for GitHub Pages &middot; /docs</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

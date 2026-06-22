@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you refer to the M2-BLAIPI project, please cite it using these metadata."
+title: "M2-BLAIPI: Metabolic Pathway Modeling to Support Risk Stratification in Burkitt Lymphoma"
+abstract: >-
+  M2-BLAIPI is a biomedical-engineering research project investigating whether
+  metabolic pathway activity inferred from transcriptomic data, combined with
+  molecular subgroup information, can improve risk stratification in Burkitt
+  lymphoma beyond established clinical prognostic tools.
+type: software
+authors:
+  - family-names: Jarso
+    given-names: Samson
+    affiliation: "Johns Hopkins University"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"  # add if available
+  # Add student and collaborator authors below only with their approval:
+  # - family-names: ""
+  #   given-names: ""
+  #   affiliation: "Johns Hopkins University"
+license: CC-BY-4.0
+date-released: "2026-06-22"
+url: "https://github.com/YOUR-OWNER-NAME/m2-blaipi-public"
+keywords:
+  - Burkitt lymphoma
+  - risk stratification
+  - metabolic pathways
+  - GSVA
+  - genomic subgroups
+  - reproducible research
